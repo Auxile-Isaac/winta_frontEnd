@@ -59,7 +59,7 @@ const Product = (props) => {
               }
               className="text-[#767676] hover:text-primeColor text-sm font-normal border-b-[1px] border-b-gray-200 hover:border-b-primeColor flex items-center justify-end gap-2 hover:cursor-pointer pb-1 duration-300 w-full"
             >
-              Add to Cart
+              Chat with the Seller
               <span>
                 <FaShoppingCart />
               </span>
@@ -87,7 +87,7 @@ const Product = (props) => {
           <h2 className="text-lg text-primeColor font-bold">
             {props.productName}
           </h2>
-          <p className="text-[#767676] text-[14px]">${props.price}</p>
+          <p className="text-[#767676] text-[14px]">Rwf {props.price}</p>
         </div>
         <div>
           <p className="text-[#767676] text-[14px]">{props.color}</p>
