@@ -116,7 +116,7 @@ const SignUp = () => {
         zip
       ) {
         setSuccessMsg(
-          `Hello dear ${clientName}, Welcome you to OREBI Admin panel. We received your Sign up request. We are processing to validate your access. Till then stay connected and additional assistance will be sent to you by your mail at ${email}`
+          `Hello dear ${clientName}, Welcome you to WINTA Admin panel. We received your Sign up request. We are processing to validate your access. Till then stay connected and additional assistance will be sent to you by your mail at ${email}`
         );
         setClientName("");
         setEmail("");
@@ -148,7 +148,7 @@ const SignUp = () => {
             </span>
             <p className="text-base text-gray-300">
               <span className="text-white font-semibold font-titleFont">
-                Get started fast with OREBI
+                Get started fast with WINTA
               </span>
               <br />
               Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ab omnis
@@ -161,7 +161,7 @@ const SignUp = () => {
             </span>
             <p className="text-base text-gray-300">
               <span className="text-white font-semibold font-titleFont">
-                Access all OREBI services
+                Access all WINTA services
               </span>
               <br />
               Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ab omnis
@@ -183,7 +183,7 @@ const SignUp = () => {
           </div>
           <div className="flex items-center justify-between mt-10">
             <p className="text-sm font-titleFont font-semibold text-gray-300 hover:text-white cursor-pointer duration-300">
-              © OREBI
+              © WINTA
             </p>
             <p className="text-sm font-titleFont font-semibold text-gray-300 hover:text-white cursor-pointer duration-300">
               Terms
@@ -216,7 +216,7 @@ const SignUp = () => {
           <form className="w-full lgl:w-[500px] h-screen flex items-center justify-center">
             <div className="px-6 py-4 w-full h-[96%] flex flex-col justify-start overflow-y-scroll scrollbar-thin scrollbar-thumb-primeColor">
               <h1 className="font-titleFont underline underline-offset-4 decoration-[1px] font-semibold text-2xl mdl:text-3xl mb-4">
-                Create your account
+                You're welcome to join us!
               </h1>
               <div className="flex flex-col gap-3">
                 {/* client name */}
@@ -229,7 +229,7 @@ const SignUp = () => {
                     value={clientName}
                     className="w-full h-8 placeholder:text-sm placeholder:tracking-wide px-4 text-base font-medium placeholder:font-normal rounded-md border-[1px] border-gray-400 outline-none"
                     type="text"
-                    placeholder="eg. John Doe"
+                    placeholder="eg. Auxile Iradukunda"
                   />
                   {errClientName && (
                     <p className="text-sm text-red-500 font-titleFont font-semibold px-4">
@@ -248,7 +248,7 @@ const SignUp = () => {
                     value={email}
                     className="w-full h-8 placeholder:text-sm placeholder:tracking-wide px-4 text-base font-medium placeholder:font-normal rounded-md border-[1px] border-gray-400 outline-none"
                     type="email"
-                    placeholder="john@workemail.com"
+                    placeholder="eg. shop@gmail.com"
                   />
                   {errEmail && (
                     <p className="text-sm text-red-500 font-titleFont font-semibold px-4">
@@ -267,7 +267,7 @@ const SignUp = () => {
                     value={phone}
                     className="w-full h-8 placeholder:text-sm placeholder:tracking-wide px-4 text-base font-medium placeholder:font-normal rounded-md border-[1px] border-gray-400 outline-none"
                     type="text"
-                    placeholder="008801234567891"
+                    placeholder="eg. 25078826xxx2"
                   />
                   {errPhone && (
                     <p className="text-sm text-red-500 font-titleFont font-semibold px-4">
@@ -286,7 +286,7 @@ const SignUp = () => {
                     value={password}
                     className="w-full h-8 placeholder:text-sm placeholder:tracking-wide px-4 text-base font-medium placeholder:font-normal rounded-md border-[1px] border-gray-400 outline-none"
                     type="password"
-                    placeholder="Create password"
+                    placeholder="eg. passWord@23"
                   />
                   {errPassword && (
                     <p className="text-sm text-red-500 font-titleFont font-semibold px-4">
@@ -305,7 +305,7 @@ const SignUp = () => {
                     value={address}
                     className="w-full h-8 placeholder:text-sm placeholder:tracking-wide px-4 text-base font-medium placeholder:font-normal rounded-md border-[1px] border-gray-400 outline-none"
                     type="text"
-                    placeholder="road-001, house-115, example area"
+                    placeholder="eg. KG 35 Av"
                   />
                   {errAddress && (
                     <p className="text-sm text-red-500 font-titleFont font-semibold px-4">
@@ -324,7 +324,7 @@ const SignUp = () => {
                     value={city}
                     className="w-full h-8 placeholder:text-sm placeholder:tracking-wide px-4 text-base font-medium placeholder:font-normal rounded-md border-[1px] border-gray-400 outline-none"
                     type="text"
-                    placeholder="Your city"
+                    placeholder="eg. Kigali"
                   />
                   {errCity && (
                     <p className="text-sm text-red-500 font-titleFont font-semibold px-4">
@@ -343,7 +343,7 @@ const SignUp = () => {
                     value={country}
                     className="w-full h-8 placeholder:text-sm placeholder:tracking-wide px-4 text-base font-medium placeholder:font-normal rounded-md border-[1px] border-gray-400 outline-none"
                     type="text"
-                    placeholder="Your country"
+                    placeholder="eg. Rwanda"
                   />
                   {errCountry && (
                     <p className="text-sm text-red-500 font-titleFont font-semibold px-4">
@@ -362,7 +362,7 @@ const SignUp = () => {
                     value={zip}
                     className="w-full h-8 placeholder:text-sm placeholder:tracking-wide px-4 text-base font-medium placeholder:font-normal rounded-md border-[1px] border-gray-400 outline-none"
                     type="text"
-                    placeholder="Your country"
+                    placeholder="Enter 000 if you're in Rwanda"
                   />
                   {errZip && (
                     <p className="text-sm text-red-500 font-titleFont font-semibold px-4">
@@ -379,7 +379,7 @@ const SignUp = () => {
                     type="checkbox"
                   />
                   <p className="text-sm text-primeColor">
-                    I agree to the OREBI{" "}
+                    I agree to the WINTA{" "}
                     <span className="text-blue-500">Terms of Service </span>and{" "}
                     <span className="text-blue-500">Privacy Policy</span>.
                   </p>
@@ -395,7 +395,7 @@ const SignUp = () => {
                   Create Account
                 </button>
                 <p className="text-sm text-center font-titleFont font-medium">
-                  Don't have an Account?{" "}
+                  Have an Account?{" "}
                   <Link to="/signin">
                     <span className="hover:text-blue-600 duration-300">
                       Sign in
