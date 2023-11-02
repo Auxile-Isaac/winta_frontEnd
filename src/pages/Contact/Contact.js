@@ -83,7 +83,7 @@ const Contact = () => {
                 value={clientName}
                 className="w-full py-1 border-b-2 px-2 text-base font-medium placeholder:font-normal placeholder:text-sm outline-none focus-within:border-primeColor"
                 type="text"
-                placeholder="Enter your name here"
+                placeholder="Tell Us your Beautifull names please"
               />
               {errClientName && (
                 <p className="text-red-500 text-sm font-titleFont font-semibold mt-1 px-2 flex items-center gap-1">
