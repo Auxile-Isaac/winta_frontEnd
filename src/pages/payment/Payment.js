@@ -5,9 +5,9 @@ import Breadcrumbs from "../../components/pageProps/Breadcrumbs";
 const Payment = () => {
   return (
     <div className="max-w-container mx-auto px-4">
-      <Breadcrumbs title="Payment gateway" />
+      <Breadcrumbs title="Contact Vendor" />
       <div className="pb-10">
-        <p>Payment gateway only applicable for Production build.</p>
+        <p>Your shopping list has been sent to the Vendors, they will contact you in a short time.</p>
         <Link to="/">
           <button className="w-52 h-10 bg-primeColor text-white text-lg mt-4 hover:bg-black duration-300">
             Explore More
