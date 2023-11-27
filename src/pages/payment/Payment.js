@@ -8,7 +8,8 @@ const Payment = () => {
       <Breadcrumbs title="Contact Vendor" />
       <div className="pb-10">
         <p>Your shopping list has been sent to the Vendors, they will contact you in a short time.</p>
-        <Link to="/">
+        <Link to="/">file:///home/gatsinzi/Desktop/Jupiter
+
           <button className="w-52 h-10 bg-primeColor text-white text-lg mt-4 hover:bg-black duration-300">
             Explore More
           </button>

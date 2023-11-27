@@ -2,10 +2,11 @@ import React, { useState } from "react";
 import { BsCheckCircleFill } from "react-icons/bs";
 import { Link } from "react-router-dom";
 import { logoLight } from "../../assets/images";
+import axios from "axios";
 
 const SignUp = () => {
   // ============= Initial State Start here =============
-  const [clientName, setClientName] = useState("");
+  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [password, setPassword] = useState("");
@@ -14,9 +15,11 @@ const SignUp = () => {
   const [country, setCountry] = useState("");
   const [zip, setZip] = useState("");
   const [checked, setChecked] = useState(false);
+  // ============= Initialization of End-points ===============
+  const signUpEndPoint = process.env.REACT_APP_SIGNUP_ENDPOINT
   // ============= Initial State End here ===============
   // ============= Error Msg Start here =================
-  const [errClientName, setErrClientName] = useState("");
+  const [errName, setErrName] = useState("");
   const [errEmail, setErrEmail] = useState("");
   const [errPhone, setErrPhone] = useState("");
   const [errPassword, setErrPassword] = useState("");
@@ -28,8 +31,8 @@ const SignUp = () => {
   const [successMsg, setSuccessMsg] = useState("");
   // ============= Event Handler Start here =============
   const handleName = (e) => {
-    setClientName(e.target.value);
-    setErrClientName("");
+    setName(e.target.value);
+    setErrName("");
   };
   const handleEmail = (e) => {
     setEmail(e.target.value);
@@ -68,11 +71,11 @@ const SignUp = () => {
   };
   // ================= Email Validation End here ===============
 
-  const handleSignUp = (e) => {
+  const handleSignUp = async (e) => {
     e.preventDefault();
     if (checked) {
-      if (!clientName) {
-        setErrClientName("Enter your name");
+      if (!name) {
+        setErrName("Enter your name");
       }
       if (!email) {
         setErrEmail("Enter your email");
@@ -104,28 +107,40 @@ const SignUp = () => {
         setErrZip("Enter the zip code of your area");
       }
       // ============== Getting the value ==============
-      if (
-        clientName &&
-        email &&
-        EmailValidation(email) &&
-        password &&
-        password.length >= 6 &&
-        address &&
-        city &&
-        country &&
-        zip
-      ) {
-        setSuccessMsg(
-          `Hello dear ${clientName}, Welcome you to WINTA Admin panel. We received your Sign up request. We are processing to validate your access. Till then stay connected and additional assistance will be sent to you by your mail at ${email}`
-        );
-        setClientName("");
-        setEmail("");
-        setPhone("");
-        setPassword("");
-        setAddress("");
-        setCity("");
-        setCountry("");
-        setZip("");
+      if (name && email && EmailValidation(email) && password && password.length >= 6 && address && city && country && zip) {
+        try {
+          const response = await axios.post(signUpEndPoint, {
+            name,
+            email,
+            phone,
+            password,
+            address,
+            city,
+            country,
+            zip,
+          });
+  
+          // Check if 'data' property exists in the response
+          if (response.data) {
+            // Assuming your backend returns a success message upon successful registration
+            setSuccessMsg(response.data.message);
+  
+            // Clearing form fields after successful registration
+            setName("");
+            setEmail("");
+            setPhone("");
+            setPassword("");
+            setAddress("");
+            setCity("");
+            setCountry("");
+            setZip("");
+          } else {
+            console.error('Unexpected response format:', response);
+          }
+        } catch (error) {
+          // Handle registration failure, show error messages or take appropriate action
+          console.error('Registration failed:', error.response?.data || error.message);
+        }
       }
     }
   };
@@ -219,22 +234,22 @@ const SignUp = () => {
                 You're welcome to join us!
               </h1>
               <div className="flex flex-col gap-3">
-                {/* client name */}
+                {/*  name */}
                 <div className="flex flex-col gap-.5">
                   <p className="font-titleFont text-base font-semibold text-gray-600">
                     Full Name
                   </p>
                   <input
                     onChange={handleName}
-                    value={clientName}
+                    value={name}
                     className="w-full h-8 placeholder:text-sm placeholder:tracking-wide px-4 text-base font-medium placeholder:font-normal rounded-md border-[1px] border-gray-400 outline-none"
                     type="text"
                     placeholder="eg. Auxile Iradukunda"
                   />
-                  {errClientName && (
+                  {errName && (
                     <p className="text-sm text-red-500 font-titleFont font-semibold px-4">
                       <span className="font-bold italic mr-1">!</span>
-                      {errClientName}
+                      {errName}
                     </p>
                   )}
                 </div>
