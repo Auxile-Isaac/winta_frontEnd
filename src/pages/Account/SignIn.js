@@ -2,12 +2,17 @@ import React, { useState } from "react";
 import { BsCheckCircleFill } from "react-icons/bs";
 import { Link } from "react-router-dom";
 import { logoLight } from "../../assets/images";
+import axios from 'axios';
+
 
 const SignIn = () => {
+
   // ============= Initial State Start here =============
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   // ============= Initial State End here ===============
+  // ============= Initialization of End-points ===============
+  const signInEndPoint = process.env.REACT_APP_SIGNIN_ENDPOINT
   // ============= Error Msg Start here =================
   const [errEmail, setErrEmail] = useState("");
   const [errPassword, setErrPassword] = useState("");
@@ -24,7 +29,7 @@ const SignIn = () => {
     setErrPassword("");
   };
   // ============= Event Handler End here ===============
-  const handleSignUp = (e) => {
+  const handleSignUp = async (e) => {
     e.preventDefault();
 
     if (!email) {
@@ -32,15 +37,32 @@ const SignIn = () => {
     }
 
     if (!password) {
-      setErrPassword("Create a password");
+      setErrPassword("Enter a password");
     }
     // ============== Getting the value ==============
     if (email && password) {
-      setSuccessMsg(
-        `Hello dear, Thank you for your attempt. We are processing to validate your access. Till then stay connected and additional assistance will be sent to you by your mail at ${email}`
-      );
-      setEmail("");
-      setPassword("");
+      try {
+        const response = await axios.post(signInEndPoint, { 
+          email, 
+          password 
+        });
+  
+        // Assuming your backend returns a token upon successful login
+        const { token } = response.data;
+  
+        // Save the token to the browser's local storage
+        localStorage.setItem('authToken', token);
+  
+        setSuccessMsg(
+          `Hello dear, Thank you for your attempt. We are processing to validate your access. Till then stay connected and additional assistance will be sent to you by your mail at ${email}`
+        );
+  
+        setEmail("");
+        setPassword("");
+      } catch (error) {
+        // Handle authentication error, e.g., display an error message
+        console.error('Authentication failed:', error.response?.data || error.message);
+      }
     }
   };
   return (
