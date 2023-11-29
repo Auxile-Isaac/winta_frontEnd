@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import { BsCheckCircleFill } from "react-icons/bs";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { logoLight } from "../../assets/images";
 import axios from 'axios';
 
 
 const SignIn = () => {
+
+  const navigate = useNavigate();
 
   // ============= Initial State Start here =============
   const [email, setEmail] = useState("");
@@ -59,6 +61,9 @@ const SignIn = () => {
   
         setEmail("");
         setPassword("");
+
+        // Redirect to the shops page
+        navigate("/shop");
       } catch (error) {
         // Handle authentication error, e.g., display an error message
         console.error('Authentication failed:', error.response?.data || error.message);
